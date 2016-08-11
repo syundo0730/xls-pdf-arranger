@@ -55,7 +55,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         self.fontname = "AoyagiKouzanFontT"
 
-        pdfmetrics.registerFont(TTFont(self.fontname, "./font/DFJGYOMD.ttc"))
+        pdfmetrics.registerFont(TTFont(self.fontname, "C:\Windows\Fonts\DFJGYOMD.ttc"))
         self.pdfFile.setFont(self.fontname, 10)
 
     def draw_string(self,string,size,posx,posy):

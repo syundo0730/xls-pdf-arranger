@@ -12,20 +12,6 @@ import PyQt4.QtCore as QtCore
 import PyQt4.QtGui as QtGui
 from MainWindowUI import Ui_MainWindow
 
-##try:
-##	_fromUtf8 = QtCore.QString.fromUtf8
-##except AttributeError:
-##	def _fromUtf8(s):
-##		return s
-##
-##try:
-##	_encoding = QtGui.QApplication.UnicodeUTF8
-##	def _translate(context, text, disambig):
-##		return QtGui.QApplication.translate(context, text, disambig, _encoding)
-##except AttributeError:
-##	def _translate(context, text, disambig):
-##		return QtGui.QApplication.translate(context, text, disambig)
-
 
 class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kw):
@@ -65,6 +51,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.pdfFile.drawString(posx, posy + i  *size * 0.75, string[i])
 
     def calc_size(self, str_len, modulation, margin):
+        if str_len == 0:
+            return 0
         return (self.ysize * modulation - margin) / str_len
 
     def change_mod(self, val):
